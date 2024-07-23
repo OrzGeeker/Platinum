@@ -6,3 +6,4 @@ xcuserdata
 *.pyc
 .scons*
 .DS_Store
+Build/Targets/universal-apple-macosx/output
