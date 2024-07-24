@@ -21,7 +21,7 @@ let package = Package(
         .binaryTarget(
             name: "Platinum", 
             url: "https://github.com/OrzGeeker/Platinum/releases/download/0.0.1/Platinum.xcframework.zip", 
-            checksum: "bd63aab7e7a44b9eafb1b13a21b70c21ea49d4c61fe7a4e0bfe463cf10e55bec"
+            checksum: "e90dd7c4251442ad6436afc81f4d575fccc8ad4a79ae940187d68737d8b86077"
         ),
     ]
 )
