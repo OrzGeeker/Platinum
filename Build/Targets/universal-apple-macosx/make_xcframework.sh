@@ -58,7 +58,7 @@ echo "${xcframework_cmd}"
 
 if [ -d "${xcframework_output_path}" ]; then
     echo ouput xcframework path: ${xcframework_output_path} 
-    zip -r "${xcframework_output_path}.zip" "${xcframework_output_path}"
+    cd $archive_dir && zip -r "${xcframework_output_path}.zip" "${xcframework_output_path}"
     spm_xcframework_checksum=$(swift package compute-checksum "${xcframework_output_path}.zip")
     echo "spm_xcframework_checksum: ${spm_xcframework_checksum}"
 fi
