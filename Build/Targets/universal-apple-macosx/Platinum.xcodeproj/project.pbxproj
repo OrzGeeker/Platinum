@@ -1465,7 +1465,6 @@
 				E410161D1ACFA826000E994F /* Frameworks */,
 				E410161E1ACFA826000E994F /* Headers */,
 				E410161F1ACFA826000E994F /* Resources */,
-				E4B2A5A41FC8F8EB00C891D7 /* Copy Products to Carthage/Build/iOS */,
 			);
 			buildRules = (
 			);
@@ -1690,7 +1689,6 @@
 				E44E2B571AE761220092347B /* Frameworks */,
 				E44E2B591AE761220092347B /* Headers */,
 				E44E2B871AE761220092347B /* Resources */,
-				E4B2A5A51FC8F8F100C891D7 /* Copy Products to Carthage/Build/iOS */,
 			);
 			buildRules = (
 			);
@@ -1827,34 +1825,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# shell script goes here\n#  Build the doxygen documentation for the project and load the docset into Xcode.\n\n#  Use the following to adjust the value of the $DOXYGEN_PATH User-Defined Setting:\n#    Binary install location: /Applications/Doxygen.app/Contents/Resources/doxygen\n#    Source build install location: /usr/local/bin/doxygen\n\n\ncd \"$SOURCE_ROOT/../../../Docs/Doxygen\"\nDIR=\"$( cd \"$( dirname \"${BASH_SOURCE[0]}\" )\" && pwd )\"\necho $(pwd)\n\nif ! [ -f Doxyfile ] \nthen \n  echo doxygen config file does not exist\nfi\n\nVERSION=$(python ../../Scripts/version.py)\n\n#  Run doxygen on the updated config file.\n#  Note: doxygen creates a Makefile that does most of the heavy lifting.\n\n( cat Doxyfile ; echo \"PROJECT_NUMBER=$VERSION\" ) | /usr/local/bin/doxygen -\n\n#  make will invoke docsetutil. Take a look at the Makefile to see how this is done.\n\nmake -C Platinum-HTML install\n\n#  Construct a temporary applescript file to tell Xcode to load a docset.\n\nrm -f \"$TEMP_DIR/loadDocSet.scpt\"\n\necho \"tell application \\\"Xcode\\\"\" >> \"$TEMP_DIR/loadDocSet.scpt\"\necho \"load documentation set with path \\\"/Users/$USER/Library/Developer/Shared/Documentation/DocSets/\\\"\" \n     >> $TEMP_DIR/loadDocSet.scpt\necho \"end tell\" >> \"$TEMP_DIR/loadDocSet.scpt\"\n\n#  Run the load-docset applescript command.\n\nosascript \"$TEMP_DIR/loadDocSet.scpt\"\n\nexit 0";
-		};
-		E4B2A5A41FC8F8EB00C891D7 /* Copy Products to Carthage/Build/iOS */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Products to Carthage/Build/iOS";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "build_dir=\"$SRCROOT/../../../Carthage/Build\"\n\n# Only copy when the Carthage/Build directory is a symlink\nif ! [ -L \"$build_dir\" ]; then exit 0; fi\n\nrsync --delete -avL \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME\"* \"$build_dir/iOS\"";
-		};
-		E4B2A5A51FC8F8F100C891D7 /* Copy Products to Carthage/Build/iOS */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Products to Carthage/Build/iOS";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "build_dir=\"$SRCROOT/../../../Carthage/Build\"\n\n# Only copy when the Carthage/Build directory is a symlink\nif ! [ -L \"$build_dir\" ]; then exit 0; fi\n\nrsync --delete -avL \"$BUILT_PRODUCTS_DIR/$PRODUCT_NAME\"* \"$build_dir/Mac\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -3188,7 +3158,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../Carthage/Build/Mac",
-					/Users/sylvain/dev/Plutinosoft/Platinum/Carthage/Build/Mac,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -3248,7 +3217,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../../../Carthage/Build/Mac",
-					/Users/sylvain/dev/Plutinosoft/Platinum/Carthage/Build/Mac,
 				);
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
