@@ -2436,6 +2436,7 @@
 				);
 				INSTALL_PATH = /usr/local/bin;
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../../../Carthage/Build/Mac";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = SsdpTest;
 				SUPPORTED_PLATFORMS = macosx;
 			};
@@ -2460,6 +2461,7 @@
 				);
 				INSTALL_PATH = /usr/local/bin;
 				LD_RUNPATH_SEARCH_PATHS = "$(SRCROOT)/../../../Carthage/Build/Mac";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_NAME = SsdpTest;
 				SUPPORTED_PLATFORMS = macosx;
 				ZERO_LINK = NO;
